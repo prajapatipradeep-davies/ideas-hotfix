@@ -1,0 +1,91 @@
+name: Hotfix Request
+description: Create and track an Ideas Code Change or Magic Job Update
+title: "[HOTFIX] "
+labels:
+  - hotfix
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Hotfix Request
+        Complete the information below to create a hotfix request.
+
+        **Important:**
+        - Select **Ideas Code Change** for Ideas application code changes.
+        - Select **Magic Job Update** for Magic Job changes.
+        - Magic Job updates do not follow the QA/MO testing path.
+
+  - type: dropdown
+    id: hotfix_type
+    attributes:
+      label: Hotfix Type
+      description: Select the type of hotfix.
+      options:
+        - Ideas Code Change
+        - Magic Job Update
+    validations:
+      required: true
+
+  - type: textarea
+    id: brief_description
+    attributes:
+      label: Brief Description of Change
+      description: Describe the change being made.
+      placeholder: |
+        Describe the hotfix change and the reason for the change.
+    validations:
+      required: true
+
+  - type: textarea
+    id: testing_instructions
+    attributes:
+      label: Testing Instructions
+      description: |
+        Provide the instructions BA should follow when testing the change.
+        For an Ideas Code Change, include the QA/MO testing steps as applicable.
+      placeholder: |
+        Example:
+        1. Open the affected functionality.
+        2. Perform the required action.
+        3. Verify the expected result.
+
+        Expected Result:
+        Describe the expected behavior.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: dbupdate_required
+    attributes:
+      label: DBUpdate Required?
+      description: Indicate whether a DBUpdate is required for this hotfix.
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: true
+
+  - type: textarea
+    id: dbupdate_instructions
+    attributes:
+      label: DBUpdate Instructions
+      description: |
+        If a DBUpdate is required, provide the applicable DBUpdate information
+        or instructions. Leave blank when DBUpdate Required is No.
+      placeholder: |
+        Enter DBUpdate details or instructions, if applicable.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_notes
+    attributes:
+      label: Additional Notes / Instructions
+      description: |
+        Enter any additional information or instructions required for
+        processing, testing, or deploying the hotfix.
+      placeholder: |
+        Enter additional notes or instructions here.
+    validations:
+      required: false
